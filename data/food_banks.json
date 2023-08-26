@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "name": "FoodHub UNSW",
     "location": "-33.915235, 151.227739",
     "intro": "Created by the coolest uni ;3",
@@ -26,6 +27,7 @@
     ]
   },
   {
+    "id": 2,
     "name": "FoodHub USU",
     "location": "-33.889890, 151.190433",
     "intro": "Get fed by Hogwarts",
@@ -44,6 +46,7 @@
     ]
   },
   {
+    "id": 3,
     "name": "Bluebird Pantry UTS",
     "location": "-33.883484, 151.199836",
     "intro": "Bc cost of living is sky high",
