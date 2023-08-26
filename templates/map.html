@@ -2,11 +2,137 @@
 <html lang="en">
 
 <head>
+  <!-- Map styling -->
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+  <script type="text/javascript" src="static\map_script.js"></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" type="text/css" href="static\style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
   <title>Test HTML</title>
 </head>
 
 <body>
   <h1>{{greet}}</h1>
+  <meta id="my-data" data-lat="{{lat}}" data-long="{{long}}">
+  <!-- Map -->
+  <!-- NOTE: MAP MARKERS USE LONG/LAT COORDS INSTEAD OF LAT/LONG -->
+  <div id='map'></div>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoicmFpbnliYWdlbCIsImEiOiJjbGxyczY2am0wcGJ6M21xNXhkOXNxbzhuIn0.m7oMmXcTHbIhDh3lRAtJnA';
+    const map = new mapboxgl.Map({
+      container: 'map',
+      // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [parseFloat("{{long}}"), parseFloat("{{lat}}")],
+      zoom: 13
+    });
+
+    map.on('load', () => {
+      // Image to use as a custom marker
+      map.loadImage(
+        'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+        (error, image) => {
+          if (error) throw error;
+          map.addImage('custom-marker', image);
+
+          // Looping to add every food bank as a feature
+          const features = [];
+          const banks = "{{banks}}";
+          const newbanks = eval(banks.replaceAll("&#39;", "'"));
+          console.log(newbanks);
+          for (const bank of newbanks) {
+            console.log(bank);
+            // Gathering next events
+            let event_summary = "<p class='list-event'>Next events:</p>";
+            for (let i = 0; i < bank["events"].length; i++) {
+              event_summary += `<p class="list-event">${bank["events"][i]}</p>`;
+            }
+
+            const hub_link = `<a onclick="link_hub(${bank['id']});">Find out more ></a>`;
+
+            // Pushing features for each bank
+            features.push({
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Point',
+                'coordinates': [
+                  bank["location"][1],
+                  bank["location"][0],
+                ]
+              },
+              'properties': {
+                'title': bank["name"],
+                'description':
+                  `<strong>${bank["name"]}</strong><p><a href=${bank["website"]} target="_blank" title="Opens in a new window">Visit us at ${bank["name"]}</a> - ${bank['intro']}</p>${event_summary}${hub_link}`,
+              }
+            })
+          }
+
+          // Add a GeoJSON source with all required points
+          map.addSource('points', {
+            'type': 'geojson',
+            'data': {
+              'type': 'FeatureCollection',
+              'features': features
+            }
+          });
+
+          // Add a symbol layer
+          map.addLayer({
+            'id': 'points',
+            'type': 'symbol',
+            'source': 'points',
+            'layout': {
+              'icon-image': 'custom-marker',
+              // get the title name from the source's "title" property
+              'text-field': ['get', 'title'],
+              'text-font': [
+                'Open Sans Semibold',
+                'Arial Unicode MS Bold'
+              ],
+              'text-offset': [0, 1.25],
+              'text-anchor': 'top'
+            },
+            'className': 'marker'
+          });
+
+          // When a click event occurs on a feature in the places layer, open a popup at the
+          // location of the feature, with description HTML from its properties.
+          map.on('click', 'points', (e) => {
+            // Copy coordinates array.
+            const coordinates = e.features[0].geometry.coordinates.slice();
+            const description = e.features[0].properties.description;
+
+            // Ensure that if the map is zoomed out such that multiple
+            // copies of the feature are visible, the popup appears
+            // over the copy being pointed to.
+            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+              coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            }
+
+            new mapboxgl.Popup()
+              .setLngLat(coordinates)
+              .setHTML(description)
+              .addTo(map);
+          });
+        }
+      );
+    });
+
+  </script>
 </body>
 
 </html>

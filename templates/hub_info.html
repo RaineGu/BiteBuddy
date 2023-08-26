@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <a href="/map">Back</a>
+  <title>{{ bank.name }}</title>
+  <a href="{{bank.website}}" target="_blank" title="Opens in a new window">Visit us at {{bank.name}}</a>
+</head>
+
+<body>
+  <h1>{{bank.intro}}</h1>
+  {% for event in bank.events %}
+  <h2>{{event.time}}</h2>
+  <h3>{{event.notes}}</h3>
+  {% for food in event.food %}
+  <li>{{food}}</li>
+  {% endfor %}
+  {% endfor %}
+</body>
+
+</html>
