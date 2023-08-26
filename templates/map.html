@@ -61,6 +61,8 @@
               event_summary += `<p class="list-event">${bank["events"][i]}</p>`;
             }
 
+            const hub_link = `<a onclick="link_hub(${bank['id']});">Find out more ></a>`;
+
             // Pushing features for each bank
             features.push({
               'type': 'Feature',
@@ -74,7 +76,7 @@
               'properties': {
                 'title': bank["name"],
                 'description':
-                  `<strong>${bank["name"]}</strong><p><a href=${bank["website"]} target="_blank" title="Opens in a new window">Visit us at ${bank["name"]}</a> - ${bank['intro']}</p>${event_summary}`,
+                  `<strong>${bank["name"]}</strong><p><a href=${bank["website"]} target="_blank" title="Opens in a new window">Visit us at ${bank["name"]}</a> - ${bank['intro']}</p>${event_summary}${hub_link}`,
               }
             })
           }

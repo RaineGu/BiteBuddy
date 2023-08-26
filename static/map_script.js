@@ -9,3 +9,7 @@ async function hideEvent(marker) {
   marker.classList.add('hidden');
   console.log(f`MARKER ${marker} CLICKED`);
 }
+
+function link_hub(id) {
+  window.location.href = "/hub_info?hub=" + id;
+}

@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import json
 from geopy.geocoders import Nominatim
 from datetime import datetime
@@ -50,14 +50,55 @@ def map():
 
     # Getting base device postcode to center map
     # Instantiate a new Nominatim client
-    app = Nominatim(user_agent="BiteBuddy", timeout=3)
+    app = Nominatim(user_agent="BiteBuddy", timeout=4)
     # Get location raw data
     location = app.geocode("The University of New South Wales")
     lat = float(location.latitude)
     long = float(location.longitude)
-    # print(f"lat is ${lat}, long is ${long}")
-    print(f"banks is {banks}")
     return render_template("map.html", banks=banks, lat=lat, long=long)
+
+
+@app.route("/hub_info")
+def hub_info():
+    id = request.args.get("hub")
+    print(f"id is {id}")
+
+    # Retrieving data
+    json_file = open("data/food_banks.json")
+    data = json.load(json_file)
+    bank = {}
+
+    for data_bank in data:
+        print(f"bank is {data_bank}")
+        if int(data_bank["id"]) == int(id):
+            bank = data_bank
+            print(f"bank is {data_bank}")
+
+    if bank == {}:
+        return "404 not found D:"
+
+    # Formatting date time for events
+    events = []
+    for event in bank["events"]:
+        ts = int(event["time"]) + 36000  # Time zone to AEST
+        time = datetime.utcfromtimestamp(ts).strftime("%Y-%m-%d %A %H:%M")
+        if int(datetime.utcfromtimestamp(ts).strftime("%H")) < 12:
+            time += "AM"
+        else:
+            time += "PM"
+        events.append({"time": time, "food": event["food"]})
+
+    # Populating bank obj
+    target_bank = {
+        "id": bank["id"],
+        "name": bank["name"],
+        "location": bank["location"].split(","),
+        "intro": bank["intro"],
+        "website": bank["website"],
+        "events": events,
+    }
+
+    return render_template("hub_info.html", bank=target_bank)
 
 
 @app.post("/map_filter")
