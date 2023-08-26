@@ -11,6 +11,7 @@
   <h1>{{bank.intro}}</h1>
   {% for event in bank.events %}
   <h2>{{event.time}}</h2>
+  <h3>{{event.notes}}</h3>
   {% for food in event.food %}
   <li>{{food}}</li>
   {% endfor %}
