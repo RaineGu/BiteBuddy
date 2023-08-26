@@ -31,7 +31,7 @@
     "id": 2,
     "name": "FoodHub USU",
     "location": "-33.889890, 151.190433",
-    "intro": "Get fed by Hogwarts",
+    "intro": "Get fed by Hogwarts!",
     "website": "https://usu.edu.au/food-drink/foodhub",
     "events": [
       {
@@ -56,7 +56,7 @@
     "events": [
       {
         "time": "1693362497",
-        "notes": "Become birb",
+        "notes": "Become birb.",
         "food": [
           "sunflower seeds",
           "poppyseed muffins",
