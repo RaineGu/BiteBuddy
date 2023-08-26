@@ -6,6 +6,7 @@
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" type="text/css" href="static\style.css">
   <style>
     body {
       margin: 0;
@@ -24,7 +25,9 @@
 
 <body>
   <h1>{{greet}}</h1>
+  <meta id="my-data" data-lat="{{lat}}" data-long="{{long}}">
   <!-- Map -->
+  <!-- NOTE: MAP MARKERS USE LONG/LAT COORDS INSTEAD OF LAT/LONG -->
   <div id='map'></div>
   <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoicmFpbnliYWdlbCIsImEiOiJjbGxyczY2am0wcGJ6M21xNXhkOXNxbzhuIn0.m7oMmXcTHbIhDh3lRAtJnA';
@@ -32,48 +35,52 @@
       container: 'map',
       // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
       style: 'mapbox://styles/mapbox/streets-v12',
-      center: [-96, 37.8],
-      zoom: 3
+      center: [parseFloat("{{long}}"), parseFloat("{{lat}}")],
+      zoom: 13
     });
 
     map.on('load', () => {
-      // Add an image to use as a custom marker
+      // Image to use as a custom marker
       map.loadImage(
         'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
         (error, image) => {
           if (error) throw error;
           map.addImage('custom-marker', image);
-          // Add a GeoJSON source with 2 points
+
+          // Looping to add every food bank as a feature
+          const features = [];
+          const banks = "{{banks}}";
+          const newbanks = eval(banks.replaceAll("&#39;", "'"));
+          console.log(newbanks);
+          for (const bank of newbanks) {
+            console.log(bank);
+            features.push({
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Point',
+                'coordinates': [
+                  bank["location"][1],
+                  bank["location"][0],
+                ]
+              },
+              'properties': {
+                'title': bank["name"]
+              }
+            })
+
+            // Popup
+            const popup = new mapboxgl.Popup({ closeOnClick: false })
+              .setLngLat([bank["location"][1] + 1, bank["location"][0] + 1])
+              .setHTML('<h1>Hello World!</h1>')
+              .addTo(map);
+          }
+
+          // Add a GeoJSON source with all required points
           map.addSource('points', {
             'type': 'geojson',
             'data': {
               'type': 'FeatureCollection',
-              'features': [
-                {
-                  // feature for Mapbox DC
-                  'type': 'Feature',
-                  'geometry': {
-                    'type': 'Point',
-                    'coordinates': [
-                      -77.03238901390978, 38.913188059745586
-                    ]
-                  },
-                  'properties': {
-                    'title': 'Mapbox DC'
-                  }
-                },
-                {
-                  // feature for Mapbox SF
-                  'type': 'Feature',
-                  'geometry': {
-                    'type': 'Point',
-                    'coordinates': [-122.414, 37.776]
-                  },
-                  'properties': {
-                    'title': 'Mapbox SF'
-                  }
-                }
-              ]
+              'features': features
             }
           });
 
@@ -92,11 +99,13 @@
               ],
               'text-offset': [0, 1.25],
               'text-anchor': 'top'
-            }
+            },
+            'className': 'marker'
           });
         }
       );
     });
+
   </script>
 </body>
 
