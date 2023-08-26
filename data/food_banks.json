@@ -7,7 +7,7 @@
     "website": "https://www.arc.unsw.edu.au/help/food-hub",
     "events": [
       {
-        "time": "1693189697",
+        "time": "1693267200",
         "notes": "Bring your own bag!",
         "food": [
           "carrots",
@@ -19,7 +19,7 @@
         ]
       },
       {
-        "time": "1693362497",
+        "time": "1693368000",
         "notes": "Bring your own bagssssssss!",
         "food": [
           "nothing"
@@ -35,7 +35,7 @@
     "website": "https://usu.edu.au/food-drink/foodhub",
     "events": [
       {
-        "time": "1693276097",
+        "time": "1693182600",
         "notes": "Bring your own swag!",
         "food": [
           "mushrooms",
@@ -51,11 +51,11 @@
     "id": 3,
     "name": "Bluebird Pantry UTS",
     "location": "-33.883484, 151.199836",
-    "intro": "Bc cost of living is sky high",
+    "intro": "Bc cost of living is sky high :<",
     "website": "https://utsstudentsassociation.org.au/services/bluebird-and-night-owl-food-pantry",
     "events": [
       {
-        "time": "1693362497",
+        "time": "1693197000",
         "notes": "Become birb.",
         "food": [
           "sunflower seeds",

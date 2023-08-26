@@ -55,6 +55,13 @@
           console.log(newbanks);
           for (const bank of newbanks) {
             console.log(bank);
+            // Gathering next events
+            let event_summary = "<p class='list-event'>Next events:</p>";
+            for (let i = 0; i < bank["events"].length; i++) {
+              event_summary += `<p class="list-event">${bank["events"][i]}</p>`;
+            }
+
+            // Pushing features for each bank
             features.push({
               'type': 'Feature',
               'geometry': {
@@ -67,7 +74,7 @@
               'properties': {
                 'title': bank["name"],
                 'description':
-                  `<strong>${bank["name"]}</strong><p><a href=${bank["website"]} target="_blank" title="Opens in a new window">Visit us at ${bank["name"]}</a> - ${bank['intro']}</p>`,
+                  `<strong>${bank["name"]}</strong><p><a href=${bank["website"]} target="_blank" title="Opens in a new window">Visit us at ${bank["name"]}</a> - ${bank['intro']}</p>${event_summary}`,
               }
             })
           }

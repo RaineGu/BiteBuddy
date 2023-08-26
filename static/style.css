@@ -11,6 +11,18 @@
   max-width: 200px;
 }
 
+.list-event {
+  margin: 0%;
+}
+
 .hidden {
   display: none;
+}
+
+strong {
+  font-size: 1.1rem;
+}
+
+p {
+  font-size: 0.9rem;
 }
