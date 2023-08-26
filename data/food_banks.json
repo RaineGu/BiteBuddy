@@ -1,0 +1,64 @@
+[
+  {
+    "name": "FoodHub UNSW",
+    "location": "-33.915235, 151.227739",
+    "intro": "Created by the coolest uni ;3",
+    "events": [
+      {
+        "time": "1693189697",
+        "notes": "Bring your own bag!",
+        "food": [
+          "carrots",
+          "potatoes",
+          "tomatoes",
+          "cucumbers",
+          "capsicums",
+          "beans"
+        ]
+      },
+      {
+        "time": "1693362497",
+        "notes": "Bring your own bagssssssss!",
+        "food": [
+          "nothing"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "FoodHub USU",
+    "location": "-33.889890, 151.190433",
+    "intro": "Get fed by Hogwarts",
+    "events": [
+      {
+        "time": "1693276097",
+        "notes": "Bring your own swag!",
+        "food": [
+          "mushrooms",
+          "hamburgers",
+          "pork",
+          "chips",
+          "rice"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Bluebird Pantry UTS",
+    "location": "-33.883484, 151.199836",
+    "intro": "Bc cost of living is sky high",
+    "events": [
+      {
+        "time": "1693362497",
+        "notes": "Become birb",
+        "food": [
+          "sunflower seeds",
+          "poppyseed muffins",
+          "seedless watermelon",
+          "pumpkin seeds",
+          "seedy back alley deals"
+        ]
+      }
+    ]
+  }
+]
