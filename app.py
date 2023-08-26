@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 import json
 from geopy.geocoders import Nominatim
-import time
+from datetime import datetime
 from pprint import pprint
 
 app = Flask(__name__)
@@ -22,6 +22,21 @@ def map():
     # Creating array of food banks
     banks = []
     for bank in data:
+        # Calculating date of next events (max 3)
+        next_events = []
+        while len(next_events) < 3 and len(bank["events"]) > len(next_events):
+            ts = (
+                int(bank["events"][len(next_events)]["time"]) + 36000
+            )  # Time zone to AEST
+            next_events.append(
+                datetime.utcfromtimestamp(ts).strftime("%Y-%m-%d %A %H:%M")
+            )
+            if int(datetime.utcfromtimestamp(ts).strftime("%H")) < 12:
+                next_events[len(next_events) - 1] += "AM"
+            else:
+                next_events[len(next_events) - 1] += "PM"
+
+        # Adding events to pass into website
         banks.append(
             {
                 "id": bank["id"],
@@ -29,6 +44,7 @@ def map():
                 "location": bank["location"].split(","),
                 "intro": bank["intro"],
                 "website": bank["website"],
+                "events": next_events,
             }
         )
 
