@@ -27,6 +27,8 @@ def map():
                 "id": bank["id"],
                 "name": bank["name"],
                 "location": bank["location"].split(","),
+                "intro": bank["intro"],
+                "website": bank["website"],
             }
         )
 
