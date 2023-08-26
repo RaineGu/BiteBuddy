@@ -1,0 +1,173 @@
+<!--Bite Buddy recipe page-->
+
+<!DOCTYPE html>
+<head>
+    
+    <title> bite buddy </title>
+    <meta name = "Hub Search" content="Home page of Bite Buddy website">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href="ebit_buddy_front_end.htm" rel="import" />
+    <style>
+         body {
+            font-family: 'Montserrat';
+            margin: 0; 
+        }
+        .header {
+            padding: 20px;
+            background: #e6cd9a;
+            color: #6a8b65;
+            text-align: center;
+        }
+        div.a {
+            float: left;
+            width: 10px;
+            padding: 0;
+            transform: rotate(30deg);
+        }
+        button {
+            border: black;
+            border-radius: 50%;
+            cursor: pointer;
+            appearance: none;
+            background-color: #bbbc7e;
+        }
+        input {
+            padding: 5px;
+            width: 100%;
+            box-sizing:border-box;
+            border: 3px solid #6a8b65;
+            font-family: 'Montserrat';
+
+        }
+
+        .overlay {
+            height: 100%;
+            width:0;
+            position: fixed;
+            z-index: 1;
+            top:0;
+            left:0;
+            background-color: #d86242;
+            background-image: url('5.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            background-size: 50% auto;
+            
+            overflow-x: hidden;
+            transition: 0.3s;
+        }
+        .overlay-content {
+            position: relative;
+            top: 25%;
+            width: 100%;
+            margin-top:5%;
+        }
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size:36px;
+            color: #e6cd9a;
+            display: block;
+            transition: 0.2;
+        }
+        .overlay a:hover, .overlay a:focus {
+            color: whitesmoke;
+        }
+        .overlay .closebtn {
+            position: absolute;
+            top: 25px;
+            right: 50px;
+            font-size: 60px;
+        }
+        .text {
+            padding: 100px;
+            background: white;
+            color: black;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 2vw;
+        }
+    
+        @media screen and (max-height: 450px) {
+            .overlay a {font-size: 20px}
+            .overlay .closebtn {
+            font-size: 40px;
+            top: 15px;
+            right: 35px;
+            }
+        }
+        
+    </style>
+
+</head>
+<html>
+<body>
+    <div id = "menuNav" class = "overlay"> 
+        <a href= "javascript:void(0)"
+        class = "closebtn"
+        onclick="closeMenu()">&times;</a>
+        <div class = "overlay-content">
+            <!--To Format-->
+            
+            <a href="bit_buddy_front_end.html" style = "text-align:center; padding-bottom: 15%;">Home</a>
+            <br>
+            <a href="bite_buddy_search_page.html" style = "float:left; transform:rotate(-90deg); margin-left:5%;" >Search</a>
+            
+            <a href="bite_buddy_recipe_page.html" style = "float:right;  transform:rotate(90deg); margin-right:5%;">Recipes</a>
+            <br>
+            <a href="bite_buddy_about_page.html" style = "text-align:center; padding-top: 25%;">About</a>
+        </div>
+    </div>
+
+    <div class = "header" >
+        <div class = "a" style = "margin-top:10px; margin-left: 15px;"> 
+            <button type = "menu" onclick = "openMenu()">
+            <img src = "2.png" width = "100" alt = "menu" />
+        </button>
+        </div>
+        <div style = "margin-left: 50%;">
+        <img src = "3.png" width = "200" alt = "logo">
+        <br> <b style = "font-size: 10px;"> Heartfelt Hacktivists </b>
+        </div>
+    </div>
+
+    <script>
+        function openMenu() {
+            document.getElementById("menuNav").style.width = "100%";
+        }
+    
+        function closeMenu() {
+            document.getElementById("menuNav").style.width = "0%";
+        }
+    </script>
+
+
+
+ 
+<form onsubmit="return addIngredient ('list', this.fingredient)">
+    <input type = "text" id = "fingredient"  placeholder = "Enter Ingredients Here">
+</form>
+<h1> Ingredients </h1>
+<button style = "border-radius: 12px; padding: 12px 30px; float: right;">
+    search
+</button>
+<ul id = "list">
+
+</ul>
+
+
+
+<script>
+    function addIngredient(list, inputField) {
+        var list = document.getElementById(list);
+        var listItem = document.createElement("li");
+        listItem.innerText = inputField.value;
+        list.appendChild(listItem);
+        return false;
+    }
+</script>
+</body>
+</html>
