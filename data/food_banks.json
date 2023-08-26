@@ -4,6 +4,7 @@
     "name": "FoodHub UNSW",
     "location": "-33.915235, 151.227739",
     "intro": "Created by the coolest uni ;3",
+    "website": "https://www.arc.unsw.edu.au/help/food-hub",
     "events": [
       {
         "time": "1693189697",
@@ -30,7 +31,8 @@
     "id": 2,
     "name": "FoodHub USU",
     "location": "-33.889890, 151.190433",
-    "intro": "Get fed by Hogwarts",
+    "intro": "Get fed by Hogwarts!",
+    "website": "https://usu.edu.au/food-drink/foodhub",
     "events": [
       {
         "time": "1693276097",
@@ -50,16 +52,136 @@
     "name": "Bluebird Pantry UTS",
     "location": "-33.883484, 151.199836",
     "intro": "Bc cost of living is sky high",
+    "website": "https://utsstudentsassociation.org.au/services/bluebird-and-night-owl-food-pantry",
     "events": [
       {
         "time": "1693362497",
-        "notes": "Become birb",
+        "notes": "Become birb.",
         "food": [
           "sunflower seeds",
           "poppyseed muffins",
           "seedless watermelon",
           "pumpkin seeds",
           "seedy back alley deals"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Australian Catholic University",
+    "location": "-33.889658, 151.175214",
+    "intro": "",
+    "website": "https://www.acu.edu.au/student-life/campus-facilities/food-drink-and-recreation-facilities",
+    "events": [
+      {
+        "time": "1693055830",
+        "notes": ".",
+        "food": [
+          "",
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Torrens University Australia",
+    "location": "-33.884040, 151.209894",
+    "intro": "",
+    "website": "https://www.torrens.edu.au/blog/nutrition-students-work-on-food-education-australia",
+    "events": [
+      {
+        "time": "1693624621",
+        "notes": ".",
+        "food": [
+          "",
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Western Sydney University",
+    "location": "-33.875538, 151.209181",
+    "intro": "",
+    "website": "https://www.westernsydney.edu.au/currentstudents/current_students/services_and_facilities/chaplaincy/soup_kitchen",
+    "events": [
+      {
+        "time": "1693711021",
+        "notes": ".",
+        "food": [
+          "",
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "La Trobe University Sydney Campus",
+    "location": "-33.875423, 151.209366",
+    "intro": "",
+    "website": "https://www.latrobe.edu.au/students/support/wellbeing/services/food-relief",
+    "events": [
+      {
+        "time": "1693797421",
+        "notes": ".",
+        "food": [
+          "",
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Victoria University",
+    "location": "-33.869412, 151.203814",
+    "intro": "",
+    "website": "https://www.vu.edu.au/current-students/campus-life/advice-support/free-meals-for-vu-students#:~:text=The%20Free%20Meals%20for%20VU,M124%20on%20Mondays%20and%20Thursdays.",
+    "events": [
+      {
+        "time": "1693883821",
+        "notes": ".",
+        "food": [
+          "",
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "University of Newcastle",
+    "location": "-33.868068, 151.210326",
+    "intro": "",
+    "website": "https://www.newcastle.edu.au/newsroom/current-students/unsa-launches-food-pantry-for-students",
+    "events": [
+      {
+        "time": "1693970221",
+        "notes": ".",
+        "food": [
+          "",
+          ""
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Macquarie University City Campus",
+    "location": "-33.866295, 151.208287",
+    "intro": "",
+    "website": "https://students.mq.edu.au/support/international/financial",
+    "events": [
+      {
+        "time": "1694056621",
+        "notes": ".",
+        "food": [
+          "",
+          ""
         ]
       }
     ]
