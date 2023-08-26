@@ -22,9 +22,6 @@ def map_filter():
     ret_value1 = request.form['name']                  #receive filter input data
     ret_value2 = request.form['events-time']           #receive filter input data
     ret_value3 = request.form['events-food']           #receive filter input data
-    print(ret_value1)
-    print(ret_value2)
-    print(ret_value3)
     
     #the main attribute of json file
     json_str_list = ["name","events"]
@@ -38,7 +35,7 @@ def map_filter():
         for x in range(len(json_str_list)):
             if json_str_list[x] != "events":    #it's not event
                 if each_tuple["name"] == ret_value1:
-                    return 0                    #it should return json data!!!!
+                    return 0                
             elif json_str_list[x] == "events" and ret_value2 == "" and ret_value3 == "":  #it is event but we don't need it
                 break
             else:
@@ -46,13 +43,21 @@ def map_filter():
                 for event in event_tuple:
                     each_event_tuple = event_tuple[event]
                     for y in range(len(json_event_list)): 
-                        #each_event_tuple[json_event_list[y]]=="food","time"
-                        if each_event_tuple[json_event_list[y]] == ret_value2:
-                            return 0
-                        elif each_event_tuple[json_event_list[y]] == ret_value3:
-                            return 0
+                        #-------------------------------------------#
+                        if json_event_list[y] == "time":
+                            if each_event_tuple[json_event_list[y]] == ret_value2:
+                                return 0
                         else:
-                            return 0
+                            food_tuple = each_event_tuple[json_event_list[y]]
+                            flag = 0
+                            for food_index in food_tuple:
+                                if food_tuple[food_index] == ret_value3:
+                                    flag = 1
+                                    break
+                            if flag:
+                                return 1
+                            else:
+                                return 1
                 pass         
         pass
     pass
