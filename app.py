@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from geopy.geocoders import Nominatim
-import cmath
+import math
 
 app = Flask(__name__)
 
@@ -45,17 +45,15 @@ def map_filter():
         
         next_events = []
         next_food = []
-        each_tuple["location"].split(",")
         if state_1 :
-            
             app = Nominatim(user_agent="BiteBuddy", timeout=4)
             current_location = app.geocode(ret_value1)
             current_lat = float(current_location.latitude)
             current_long = float(current_location.longitude)
-            dst_lat = 1.1
-            dst_long = 2.2
+            dst_lat = float(each_tuple["location"].split(","))
+            dst_long = float(each_tuple["location"].split(","))
             
-            if acos(sin(current_lat)*sin(dst_lat)+cos(current_lat)*cos(dst_lat)*cos(dst_long-current_long))*6371 < 10000:                           #within 10km
+            if math.acos(math.sin(current_lat)*math.sin(dst_lat)+math.cos(current_lat)*math.cos(dst_lat)*math.cos(dst_long-current_long))*6371 < 10000:                           #within 10km
                 
                  
         
