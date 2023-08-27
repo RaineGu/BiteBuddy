@@ -9,8 +9,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    greeting = "Hello there, Ace"
-    return render_template("index.html", greet=greeting)
+    return render_template("bit_buddy_front_end.html")
 
 
 @app.get("/map")
