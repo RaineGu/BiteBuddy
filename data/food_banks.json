@@ -66,5 +66,82 @@
         ]
       }
     ]
+  },
+  {
+    "id": 4,
+    "name": "Australian Catholic University",
+    "location": "-33.889658, 151.175214",
+    "intro": "Blessing everyone with the good stuff!",
+    "website": "https://www.acu.edu.au/student-life/campus-facilities/food-drink-and-recreation-facilities",
+    "events": [
+      {
+        "time": "1693055830",
+        "notes": "Get ready to embark on a gastronomic journey.",
+        "food": [
+          "Powdered milk",
+          "Ravioli",
+          "Shin ramen",
+          "Beef stew"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Torrens University Australia",
+    "location": "-33.884040, 151.209894",
+    "intro": "Where innovation meets education in a kangaroo-friendly environment!",
+    "website": "https://www.torrens.edu.au/blog/nutrition-students-work-on-food-education-australia",
+    "events": [
+      {
+        "time": "1693624621",
+        "notes": "Where we're turning hungry students into happy campers with a sprinkle of generosity and a dash of deliciousness!",
+        "food": [
+          "Spaghetti",
+          "Trail mix",
+          "Peanut butter",
+          "Beef stew",
+          "Canned tuna",
+          "Pears"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Western Sydney University",
+    "location": "-33.875538, 151.209181",
+    "intro": "Where knowledge thrives, diversity blooms, and food roams as freely as the campus kangaroos!",
+    "website": "https://www.westernsydney.edu.au/currentstudents/current_students/services_and_facilities/chaplaincy/soup_kitchen",
+    "events": [
+      {
+        "time": "1693711021",
+        "notes": "Step into the goodness groove at Western Sydney University's 'Food for All Fest",
+        "food": [
+          "Green beans",
+          "Peaches",
+          "Brown butter",
+          "Tomatoes",
+          "Crackers"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "La Trobe University Sydney Campus",
+    "location": "-33.875423, 151.209366",
+    "intro": "We stir up a storm of kindness with our Flavors of Caring free food.",
+    "website": "https://www.latrobe.edu.au/students/support/wellbeing/services/food-relief",
+    "events": [
+      {
+        "time": "1693797421",
+        "notes": "Get ready to spice up compassion for our spice week!",
+        "food": [
+          "Granola",
+          "Extra virgin olive oil"
+        ]
+      }
+    ]
   }
 ]
