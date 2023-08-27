@@ -61,7 +61,6 @@ def map():
 @app.route("/hub_info")
 def hub_info():
     id = request.args.get("hub")
-    print(f"id is {id}")
 
     # Retrieving data
     json_file = open("data/food_banks.json")
@@ -69,10 +68,8 @@ def hub_info():
     bank = {}
 
     for data_bank in data:
-        print(f"bank is {data_bank}")
         if int(data_bank["id"]) == int(id):
             bank = data_bank
-            print(f"bank is {data_bank}")
 
     if bank == {}:
         return "404 not found D:"

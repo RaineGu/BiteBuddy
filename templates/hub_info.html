@@ -2,20 +2,128 @@
 <html lang="en">
 
 <head>
-  <a href="/map">Back</a>
   <title>{{ bank.name }}</title>
-  <a href="{{bank.website}}" target="_blank" title="Opens in a new window">Visit us at {{bank.name}}</a>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <style>
+    /*Note */
+    /* colours */
+    /* (187,188,126), #bbbc7e light green
+            (106,139,101), #6a8b65 dark green 
+            (192,41,27), #c0291b tomato red
+            (216,98,66), #d86242 light red
+            (245,208,71), #f5d047 bright yellow
+            (230,205,154), #e6cd9a pale 
+            (107,86,130), #6d5682 purple */
+
+
+    /* body settings */
+
+    body {
+      font-family: 'Montserrat';
+      margin-top: 10px;
+    }
+
+    * {
+      font-family: 'Montserrat';
+    }
+
+    .header {
+      padding: 50px;
+      background: #ffffff;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .division {
+      height: 100px;
+    }
+
+    .heading {
+      font-size: 2rem;
+      margin: auto;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .body {
+      background-color: #e6cd9a;
+    }
+
+    .intro {
+      text-align: center;
+    }
+
+    .link {
+      text-align: center;
+      font-size: 1rem;
+      width: 100%;
+      display: block;
+      color: #6a8b65;
+      font-weight: 800;
+    }
+
+    .event-block {
+      background-color: cornsilk;
+      margin: 0;
+      padding-left: 10%;
+      width: 100%;
+    }
+
+    .back-button:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .back-button {
+      margin: 2%;
+      background-color: #f1f1f1;
+      color: black;
+      text-decoration: none;
+      display: inline-block;
+      padding: 8px 16px;
+    }
+
+    head {
+      background-color: white;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 28px;
+      padding: 0px;
+      margin-left: 4%;
+    }
+  </style>
+
+  <div class="header">
+    <img src="static\3.png" width="250" alt="logo" margin-top="3px">
+    <img src="static\vegnfroot.png" width="600" alt="logo" margin-top="3px">
+    <br>
+  </div>
+  <a class="back-button" href="/map">Back</a>
+  <div class="heading" style="margin-bottom:2px; margin-top:2%; color: black;">{{bank.name}}</div>
 </head>
 
-<body>
-  <h1>{{bank.intro}}</h1>
-  {% for event in bank.events %}
-  <h2>{{event.time}}</h2>
-  <h3>{{event.notes}}</h3>
-  {% for food in event.food %}
-  <li>{{food}}</li>
-  {% endfor %}
-  {% endfor %}
+<body class="body">
+  <div>
+    <h1 class="intro">{{bank.intro}}</h1>
+    <a class="link" href="{{bank.website}}" target="_blank" title="Opens in a new window">Visit us at {{bank.name}}</a>
+    <div class="event-block">
+      <h1>Upcoming events</h1>
+      {% for event in bank.events %}
+      <h2>{{event.time}}</h2>
+      <h3>{{event.notes}}</h3>
+      {% for food in event.food %}
+      <li>{{food}}</li>
+      {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
 </body>
 
 </html>
