@@ -8,7 +8,7 @@
     "events": [
       {
         "time": "1693267200",
-        "notes": "Bring your own bag, we've run out of ours.",
+        "notes": "Bring your own bag, we have run out of ours.",
         "food": [
           "Carrots",
           "Potatoes",
@@ -47,7 +47,7 @@
       },
       {
         "time": "1693182600",
-        "notes": "Where we're rustling up more smiles than squirrels gathering acorns.",
+        "notes": "Where we are rustling up more smiles than squirrels gathering acorns.",
         "food": [
           "Acorns",
           "Canned corn",
@@ -118,7 +118,7 @@
     "events": [
       {
         "time": "1693624621",
-        "notes": "Where we're turning hungry students into happy campers with a sprinkle of generosity and a dash of deliciousness!",
+        "notes": "Where we are turning hungry students into happy campers with a sprinkle of generosity and a dash of deliciousness!",
         "food": [
           "Spaghetti",
           "Trail mix",
@@ -139,7 +139,7 @@
     "events": [
       {
         "time": "1693711021",
-        "notes": "Step into the goodness groove at Western Sydney University's 'Food for All Fest",
+        "notes": "Step into the goodness groove at our Food for All Fest",
         "food": [
           "Green beans",
           "Peaches",
@@ -154,7 +154,7 @@
     "id": 7,
     "name": "La Trobe University Sydney Campus",
     "location": "-33.875423, 151.209366",
-    "intro": "We stir up a storm of kindness with our 'Flavors of Caring' free food.",
+    "intro": "We stir up a storm of kindness with our Flavors of Caring free food.",
     "website": "https://www.latrobe.edu.au/students/support/wellbeing/services/food-relief",
     "events": [
       {
@@ -171,7 +171,7 @@
     "id": 8,
     "name": "Victoria University",
     "location": "-33.869412, 151.203814",
-    "intro": "We're turning generosity into the secret ingredient for a tastier campus life!",
+    "intro": "We are turning generosity into the secret ingredient for a tastier campus life!",
     "website": "https://www.vu.edu.au/current-students/campus-life/advice-support/free-meals-for-vu-students#:~:text=The%20Free%20Meals%20for%20VU,M124%20on%20Mondays%20and%20Thursdays.",
     "events": [
       {
@@ -194,7 +194,7 @@
     "events": [
       {
         "time": "1693970221",
-        "notes": "Let's prove that a sprinkle of compassion and a dash of canned goods can create a recipe for community care.",
+        "notes": "Let us prove that a sprinkle of compassion and a dash of canned goods can create a recipe for community care.",
         "food": [
           "Juice",
           "Bananas",
@@ -208,12 +208,12 @@
     "id": 10,
     "name": "Macquarie University City Campus",
     "location": "-33.866295, 151.208287",
-    "intro": "food rescue fiesta that's all about turning leftovers into loveovers <3",
+    "intro": "Food rescue fiesta that is all about turning leftovers into loveovers <3",
     "website": "https://students.mq.edu.au/support/international/financial",
     "events": [
       {
         "time": "1694056621",
-        "notes": "It's time to stock the shelves, fill the hearts, and spice up the campus.",
+        "notes": "It is time to stock the shelves, fill the hearts, and spice up the campus.",
         "food": [
           "Pizza",
           "Sushi",
