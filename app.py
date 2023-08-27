@@ -12,6 +12,11 @@ def index():
     return render_template("bit_buddy_front_end.html")
 
 
+@app.route("/recipes")
+def recipes():
+    return render_template("bite_buddy_recipe_page.html")
+
+
 @app.get("/map")
 def map():
     # Retrieving data
@@ -106,13 +111,7 @@ def map_filter():
 @app.get("/about_me")
 def about_me():
     # About me shenanigans here
-    return render_template("about_me.html")
-
-
-@app.get("/recipes")
-def recipes():
-    # Recipe shenanigans here
-    return render_template("recipes.html")
+    return render_template("bite_buddy_about_page.html")
 
 
 app.run(debug=True)
