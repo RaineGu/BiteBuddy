@@ -1,0 +1,275 @@
+<!-- Bite Buddy-->
+
+<!DOCTYPE html>
+<head>
+    
+    <title> bite buddy </title>
+    <meta name = "Homepage" content="Home page of Bite Buddy website">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>
+        /*Note */
+        /* colours */
+        /* (187,188,126), #bbbc7e light green
+            (106,139,101), #6a8b65 dark green 
+            (192,41,27), #c0291b tomato red
+            (216,98,66), #d86242 light red
+            (245,208,71), #f5d047 bright yellow
+            (230,205,154), #e6cd9a pale 
+            (107,86,130), #6d5682 purple */
+        
+        
+        /* body settings */
+        body {
+            font-family: 'Montserrat';
+            margin-top: 10px; 
+        }
+        .header {
+            padding: 50px;
+            background: #ffffff;
+            color: #ffffff;
+            text-align: center;
+        }
+        .container {
+      display: flex;
+    }
+    .section {
+      background-color: #7e4659;
+      padding: 0px;
+      flex: 1;
+      margin-left: 0px;
+    }
+    .section:nth-child(1) {
+      flex: 1;
+      padding: 0px;
+    }
+    .section:nth-child(2) {
+      flex: 1.2;
+      padding: 0px;
+    }
+    .section:nth-child(3) {
+      flex: 2;
+      font-size: 28px;
+        color: white;
+        border: none;
+        padding: 0px;
+        cursor: pointer;
+    }
+        .h1 {
+            padding-top: 1px;
+            padding-bottom: 1px;
+            vertical-align: text-top;
+            color: #ffffff;
+        }
+        .h2 {
+            padding-top: 1px;
+            padding-bottom: 1px;
+            vertical-align: text-top;
+            color: #ffffff;
+        }
+        input[type="radio"] {
+      margin-top: 5px;
+      transform: scale(1); 
+    }
+        .division {
+            height: 100px;
+        }
+        button {
+            border: black;
+            border-radius: 50%;
+            cursor: pointer;
+            appearance: none;
+            background-color: #bbbc7e;
+        }
+     
+        div.a {
+            float: left;
+            width: 10.00%;
+            padding: 5px;
+            transform: rotate(30deg);
+        }
+        .overlay {
+            height: 100%;
+            width:0;
+            position: fixed;
+            z-index: 1;
+            top:0;
+            left:0;
+            background-color: #d86242;
+            background-image: url('5.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            background-size: 50% auto;
+            
+            overflow-x: hidden;
+            transition: 0.3s;
+        }
+        .overlay-content {
+            position: relative;
+            top: 25%;
+            width: 100%;
+            margin-top:5%;
+        }
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size:36px;
+            color: #e6cd9a;
+            display: block;
+            transition: 0.2;
+        }
+        .overlay a:hover, .overlay a:focus {
+            color: whitesmoke;
+        }
+        .overlay .closebtn {
+            position: absolute;
+            top: 25px;
+            right: 50px;
+            font-size: 60px;
+        }
+        .text {
+            padding: 100px;
+            background: white;
+            color: black;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 2vw;
+        }
+    
+        @media screen and (max-height: 450px) {
+            .overlay a {font-size: 20px}
+            .overlay .closebtn {
+            font-size: 40px;
+            top: 15px;
+            right: 35px;
+            }
+        }
+        </style>
+</head>
+
+
+
+<html>
+<body style="background-color:#463718;">
+    <body style="background-color:#463718; width: 100%;">
+        <div id = "menuNav" class = "overlay"> 
+            <a href= "javascript:void(0)"
+            class = "closebtn"
+            onclick="closeMenu()">&times;</a>
+            <div class = "overlay-content">
+                <!--To Format-->
+                
+                <a href="bit_buddy_front_end.html" style = "text-align:center; padding-bottom: 15%;">Home</a>
+                <br>
+                <a href="bite_buddy_search_page.html" style = "float:left; transform:rotate(-90deg); margin-left:5%;" >Search</a>
+                
+                <a href="bite_buddy_recipe_page.html" style = "float:right;  transform:rotate(90deg); margin-right:5%;">Recipes</a>
+                <br>
+                <a href="bite_buddy_about_page.html" style = "text-align:center; padding-top: 25%;">About</a>
+            </div>
+        </div>
+    
+    <div class="header">
+        <div class="a">
+            <button type = "menu" onclick = "openMenu()">
+            <img src = "2.png" width = "200" alt = "menu" />
+            </button>
+        </div>
+        <div style="margin-top: 1px;">
+            <img src="3.png" width="300" alt="logo">
+            </br>
+            <img src="vegnfroot.png" width="800" alt="logo"> 
+            <br><b style="color:black; font-size: 28px;"> Heartfelt Hacktivists </b>
+        </div>
+    </div>
+    <script>
+        function openMenu() {
+            document.getElementById("menuNav").style.width = "100%";
+        }
+    
+        function closeMenu() {
+            document.getElementById("menuNav").style.width = "0%";
+        }
+    </script>
+<form onsubmit = "return myResults(this.dietary, this.location, this.distance)">
+
+<div style="background-color:#b28795; padding:5px;" >
+    <h2 style="margin:20px; color:white; font-size: 28px;"> Enter Your Location </h2>
+<h1 style="margin:20px; color:white; font-weight:bold;"> 
+<input type="text" placeholder=" e.g. 152 City Road"  id = "location" style="font-size: 18px; width: 300px; height: 40px; font-family: Montserrat, sans-serif;">
+</h1>
+
+<div style="background-color:#7e4659; padding:5px;" >
+    <h2 style="margin:20px; color:white; font-size: 28px;"> Maximum Distance (km) </h2>
+<h1 style="margin:20px; color:white; font-weight:bold;"> 
+<input type="text" placeholder=" Enter maximum distance" id = "distance" style="font-size: 18px; width: 300px; height: 40px; font-family: Montserrat, sans-serif;">
+</h1>
+
+<div style="background-color:#5e1930; padding:5px;">
+    <h2 style="margin:20px;color:white; font-size: 28px;"> Select Your Dietary Requirements</h2>
+    <form style="font-size: 18px; margin-top: 10px; color: white;" id = "dietary" >
+      <label><input type="radio" name="dietary" value="dairy_free"> Dairy Free</label>
+      <label><input type="radio" name="dietary" value="gluten_free"> Gluten Free</label>
+      <label><input type="radio" name="dietary" value="halal"> Halal</label>
+      <label><input type="radio" name="dietary" value="vegetarian"> Vegetarian</label>
+      <label><input type="radio" name="dietary" value="vegan"> Vegan</label>
+    </form>
+  </div>
+
+</form>
+
+<br>
+
+
+
+<script>
+    function myResults(dietary, location, distance) {
+        var diet = dietary.value;
+        var loco = location.value;
+        var dist = distance.value;
+        return [diet, loco, dist];
+    }
+
+</script>
+
+
+<div class = "map">
+    <p>Map</p>
+</div>
+<div class = "location"></div>
+
+<script type = "text/javascript">
+     $(function (){
+     $(".location").load("/data/map.html");
+});
+</script>
+
+
+<!--
+<button onclick="window.location.href = 
+
+#insert backend code
+
+></button>" style="font-size: 18px; margin-top:1%; 100px; height: 40px; font-family: Montserrat, sans-serif;">Search</button>
+</h1>
+
+
+
+
+-->
+
+<!-- function myMap() {
+    varmapProp = {
+        
+    }
+}
+
+<script src = "add link here to map "></script>
+
+
+-->
+
+
+
