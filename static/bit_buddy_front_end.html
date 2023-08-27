@@ -1,0 +1,229 @@
+<!-- Bite Buddy-->
+
+<!DOCTYPE html>
+<head>
+    
+    <title> bite buddy </title>
+    <meta name = "Homepage" content="Home page of Bite Buddy website">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <style>
+        /*Note */
+        /* colours */
+        /* (187,188,126), #bbbc7e light green
+            (106,139,101), #6a8b65 dark green 
+            (192,41,27), #c0291b tomato red
+            (216,98,66), #d86242 light red
+            (245,208,71), #f5d047 bright yellow
+            (230,205,154), #e6cd9a pale 
+            (107,86,130), #6d5682 purple */
+        
+        
+        /* body settings */
+
+        td {
+          border: 3px solid #e6cd9a;
+          border-radius: 10px;
+          padding: 20px;
+          margin-left: 10px;
+          font-family: 'Montserrat';
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat';
+            margin: 0; 
+        }
+        .header {
+            padding: 150px;
+            background: #e6cd9a;
+            color: #6a8b65;
+            text-align: center;
+        }
+        .h2 {
+            padding-top: 1px;
+            padding-bottom: 70px;
+            background: #6d5682;
+            vertical-align: text-top;
+            color: #e6cd9a;
+        }
+        .footer {
+            padding: 20px;
+            background: #bbbc7e;
+            color: #e6cd9a;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        
+        }
+        .column {
+            float: right;
+            width: 20.00%;
+            padding: 20px;
+        }
+        div.a {
+            float: left;
+            width: 10.00%;
+            padding: 5px;
+            transform: rotate(30deg);
+        }
+        button {
+            border: black;
+            border-radius: 50%;
+            cursor: pointer;
+            appearance: none;
+            background-color: #bbbc7e;
+        }
+        .overlay {
+            height: 100%;
+            width:0;
+            position: fixed;
+            z-index: 1;
+            top:0;
+            left:0;
+            background-color: #d86242;
+            background-image: url('5.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            background-size: 50% auto;
+            
+            overflow-x: hidden;
+            transition: 0.3s;
+        }
+        .overlay-content {
+            position: relative;
+            top: 25%;
+            width: 100%;
+            margin-top:5%;
+        }
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size:36px;
+            color: #e6cd9a;
+            display: block;
+            transition: 0.2;
+        }
+        .overlay a:hover, .overlay a:focus {
+            color: whitesmoke;
+        }
+        .overlay .closebtn {
+            position: absolute;
+            top: 25px;
+            right: 50px;
+            font-size: 60px;
+        }
+        .center {
+            display: grid;
+            place-items: center;
+        }
+        @media screen and (max-height: 450px) {
+            .overlay a {font-size: 20px}
+            .overlay .closebtn {
+            font-size: 40px;
+            top: 15px;
+            right: 35px;
+        }
+}
+        </style>
+</head>
+
+
+
+<html>
+<body style = "background-color:#e6cd9a;">
+
+    <div id = "menuNav" class = "overlay"> 
+        <a href= "javascript:void(0)"
+        class = "closebtn"
+        onclick="closeMenu()">&times;</a>
+        <div class = "overlay-content">
+            <!--To Format-->
+            
+            <a href="bit_buddy_front_end.html" style = "text-align:center; padding-bottom: 15%;">Home</a>
+            <br>
+            <a href="bite_buddy_search_page.html" style = "float:left; transform:rotate(-90deg); margin-left:5%;" >Search</a>
+            
+            <a href="bite_buddy_recipe_page.html" style = "float:right;  transform:rotate(90deg); margin-right:5%;">Recipes</a>
+            <br>
+            <a href="bite_buddy_about_page.html" style = "text-align:center; padding-top: 25%;">About</a>
+        </div>
+    </div>
+
+
+<div class = "header" >
+    <div class = "a" > 
+        <button type = "menu" onclick = "openMenu()">
+        <img src = "2.png" width = "200" alt = "menu" />
+    </button>
+    </div>
+    <div style = "margin-left: 40%;">
+    <img src = "3.png" width = "600" alt = "logo">
+    <br> <b> Heartfelt Hacktivists </b>
+    </div>
+</div>
+<script>
+    function openMenu() {
+        document.getElementById("menuNav").style.width = "100%";
+    }
+
+    function closeMenu() {
+        document.getElementById("menuNav").style.width = "0%";
+    }
+</script>
+
+<div style = "background-color:#6a8b65; padding:5px; width:100%;" >
+<h1 style = "margin:20px;"> WELCOME </h1>
+<table style = "width:40%; padding-bottom: 5%;"> 
+    <td> 
+        Navigating the Intersection of Taste and Convenience
+        Welcome to Bitebuddy, a dynamic and innovative website that 
+        brings together the world of culinary exploration and 
+        sustainable choices, all while keeping our preferences in 
+        mind. The heart of this hackathon project lies behind 
+        Bitebuddy's goal: to revolutionize how we discover and 
+        engage with food hubs, recipes, and events.
+
+    </td>
+    <div class = "column" >
+        <img src = "7.png" width = "300" alt = "logo">
+    </div> 
+</table>
+
+
+</div>
+
+<div class = "column" >
+    <img src = "4.png" width = "300" alt = "logo">
+</div> 
+<img src = "6.png" width = "300" alt = "logo" style ="padding-bottom: 100px;">
+
+
+
+
+
+
+
+<div class = "footer" >
+    <a href = "mailto:bitebuddy@icloud.com">
+        <img src = "Mail.png" width = "100" alt = "logo" style = "float:centre; margin-right:40px;" >
+    </a>
+    <a href = "tel:+61404801784">
+        <img src = "phome.png" width = "50" alt = "logo" style = "float:centre; margin-right:40px;" >
+    </a>
+    <a href = "https://www.tiktok.com/en/">
+        <img src = "TikTok-Logo-2016-present.png" width = "100" alt = "logo" style = "float:centre; margin-right:40px;" >
+    </a>
+    <p style = "float:right;"> Copyright of Heartfelt Hacktavists </p>
+
+</div>
+
+
+
+
+
+
+</body>
+</html>
