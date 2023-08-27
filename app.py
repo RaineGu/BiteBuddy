@@ -41,8 +41,7 @@ def map_filter():
     filter_retvalue = []     
          
     for index in json:                              #search in json file
-        each_tuple = json[index]                    #get each tuple
-        
+        each_tuple = json[index]                    #get each tuple  
         next_events = []
         next_food = []
         if state_1 :
@@ -52,30 +51,20 @@ def map_filter():
             current_long = float(current_location.longitude)
             dst_lat = float(each_tuple["location"].split(","))
             dst_long = float(each_tuple["location"].split(","))
-            
-            if math.acos(math.sin(current_lat)*math.sin(dst_lat)+math.cos(current_lat)*math.cos(dst_lat)*math.cos(dst_long-current_long))*6371 < 10000:                           #within 10km
-                
-                 
-        
-        if state_3 :                                    #judge food category
-            next_food = each_tuple["events"]["food"]    #get food tuple
-            
-        
-        
+            if math.acos(math.sin(current_lat)*math.sin(dst_lat)+math.cos(current_lat)*math.cos(dst_lat)*math.cos(dst_long-current_long))*6371 < 10000:#within 10km
+                if state_3:             #user have diet!!!
+                    return 0
+                else:                   #user doesn't have diet!!
+                    next_food = each_tuple["events"]["food"]
 
-        
-        
-        next_food = []
-        next_events.append(
-            {
-                "time": each_tuple["events"]["time"],
-                "notes": each_tuple["events"]["notes"],
-                "food": next_food,
-            }
-        )
-        
-        
-        
+                next_events.append(
+                    {
+                        "time": each_tuple["events"]["time"],
+                        "notes": each_tuple["events"]["notes"],
+                        "food": next_food,
+                    }
+                )
+                    
         filter_retvalue.append(
             {
                 "id": each_tuple["id"],
@@ -87,58 +76,7 @@ def map_filter():
             }
         )    
         
-        
-        
-        
-        for x in range(len(json_str_list)):
-            if json_str_list[x] != "events":        #it's not event
-                if each_tuple["name"] == ret_value1:
-                        
-            elif json_str_list[x] == "events" and ret_value2 == "" and ret_value3 == "":  #it is event but we don't need it
-                break
-            else:
-                event_tuple = each_tuple["events"]
-                for event in event_tuple:
-                    each_event_tuple = event_tuple[event]
-                    for y in range(len(json_event_list)): 
-                        #-------------------------------------------#
-                        if json_event_list[y] == "time":
-                            if each_event_tuple[json_event_list[y]] == ret_value2:
-                                return 0
-                        else:
-                            food_tuple = each_event_tuple[json_event_list[y]]
-                            flag = 0
-                            for food_index in food_tuple:
-                                if food_tuple[food_index] == ret_value3:
-                                    flag = 1
-                                    break
-                            if flag:
-                                return 1
-                            else:
-                                return 1
-
-
-
     return render_template("map.html",banks=filter_retvalue)
-
-
-
-    # Creating array of food banks
-    banks = []
-    for bank in data:
-        # Calculating date of next events (max 3)
-        next_events = []
-        while len(next_events) < 3 and len(bank["events"]) > len(next_events):
-            ts = (
-                int(bank["events"][len(next_events)]["time"]) + 36000
-            )  # Time zone to AEST
-            next_events.append(
-                datetime.utcfromtimestamp(ts).strftime("%Y-%m-%d %A %H:%M")
-            )
-            if int(datetime.utcfromtimestamp(ts).strftime("%H")) < 12:
-                next_events[len(next_events) - 1] += "AM"
-            else:
-                next_events[len(next_events) - 1] += "PM"
 
 @app.get("/about_me")
 def about_me():
