@@ -193,23 +193,23 @@
             document.getElementById("menuNav").style.width = "0%";
         }
     </script>
+<form onsubmit = "return myResults(this.dietary, this.location, this.distance)">
 
-
-<div style="background-color:#b28795; padding:5px;">
+<div style="background-color:#b28795; padding:5px;" >
     <h2 style="margin:20px; color:white; font-size: 28px;"> Enter Your Location </h2>
 <h1 style="margin:20px; color:white; font-weight:bold;"> 
-<input type="text" placeholder=" e.g. 152 City Road" style="font-size: 18px; width: 300px; height: 40px; font-family: Montserrat, sans-serif;">
+<input type="text" placeholder=" e.g. 152 City Road"  id = "location" style="font-size: 18px; width: 300px; height: 40px; font-family: Montserrat, sans-serif;">
 </h1>
 
-<div style="background-color:#7e4659; padding:5px;">
+<div style="background-color:#7e4659; padding:5px;" >
     <h2 style="margin:20px; color:white; font-size: 28px;"> Maximum Distance (km) </h2>
 <h1 style="margin:20px; color:white; font-weight:bold;"> 
-<input type="text" placeholder=" Enter maximum distance" style="font-size: 18px; width: 300px; height: 40px; font-family: Montserrat, sans-serif;">
+<input type="text" placeholder=" Enter maximum distance" id = "distance" style="font-size: 18px; width: 300px; height: 40px; font-family: Montserrat, sans-serif;">
 </h1>
 
 <div style="background-color:#5e1930; padding:5px;">
     <h2 style="margin:20px;color:white; font-size: 28px;"> Select Your Dietary Requirements</h2>
-    <form style="font-size: 18px; margin-top: 10px; color: white;" >
+    <form style="font-size: 18px; margin-top: 10px; color: white;" id = "dietary" >
       <label><input type="radio" name="dietary" value="dairy_free"> Dairy Free</label>
       <label><input type="radio" name="dietary" value="gluten_free"> Gluten Free</label>
       <label><input type="radio" name="dietary" value="halal"> Halal</label>
@@ -218,7 +218,21 @@
     </form>
   </div>
 
+</form>
+
 <br>
+
+
+
+<script>
+    function myResults(dietary, location, distance) {
+        var diet = dietary.value;
+        var loco = location.value;
+        var dist = distance.value;
+        return [diet, loco, dist];
+    }
+
+</script>
 <!--
 <button onclick="window.location.href = 
 
