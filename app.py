@@ -86,7 +86,7 @@ def hub_info():
             time += "AM"
         else:
             time += "PM"
-        events.append({"time": time, "notes": event["notes"], "food": event["food"]})
+        events.append({"time": time, "food": event["food"]})
 
     # Populating bank obj
     target_bank = {
